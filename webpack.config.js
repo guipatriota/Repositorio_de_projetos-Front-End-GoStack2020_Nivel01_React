@@ -17,6 +17,20 @@ module.exports = {
         use: {
           loader: 'babel-loader', /** Em resumo: Toda vez que tiver um arquivo terminado com .js e que não esteja na pasta node_modules, usar o babel-loader patra converção. */
         }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
+      },
+      {
+        test: /.*\.(gif|png|ico|webp|svg|jpe?g|mp4)$/i,
+        use: {
+          loader: 'file-loader', /** Em resumo: Toda vez que tiver um arquivo terminado com .js e que não esteja na pasta node_modules, usar o babel-loader patra converção. */
+        }
       }
     ]
   }
